@@ -2,17 +2,29 @@
 # -*- encoding: utf-8 -*-
 
 import browser_cookie3
-import requests
-import re
+from collections import Counter
 
-cj = browser_cookie3.firefox()
-print(cj)
+try:
+    cjf = browser_cookie3.firefox()
+except:
+    print("No se puede acceder a las cookies del firefox")
+    cjf = []
+try:
+    cjc = browser_cookie3.chrome()
+except:
+    print("No se puede acceder a las cookies del Chrome")
+    cjc = []
 
-for c in cj:
-    print("Cookie : {}".format(c))
-    print()
+domainsf = []
+domainsc = []
+for c in cjf:
+    domainsf.append(c.domain)
+for c in cjc:
+    domainsc.append(c.domain)
 
-# url = 'https://github.com/'
-#
-# r = requests.get(url, cookies=cj)
-# print(r.text)
+# Counter sumariza las ocurrencias de la lista generada y en forma de dict
+# nos devuelve el dominio como key y las ocurencias como value
+print(Counter(domainsf))
+
+print("Cantidad de cookies en firefox : {}".format(len(domainsf)))
+print("Cantidad de cookies en chrome : {}".format(len(domainsc)))
