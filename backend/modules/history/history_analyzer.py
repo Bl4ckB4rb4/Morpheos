@@ -44,13 +44,11 @@ def fetch_specific(args):
                 brows_init = dict_browsers[browser_name]()
             
                 output[browser_name] = brows_init.fetch_history()
-            except AssertionError:
-                print('INFO: browser {} not supported'.format(browser_name))
+            except AssertionError as err:
+                print('INFO: browser {} not supported'.format(err))
 
     return output
 
 if __name__ == '__main__':
-    data = fetch_specific(['Firefox'])['Firefox']
+    data = fetch_specific(['Edge'])
     print(data)
-    print(summarize.summarize_by_domain(data.histories))
-    print(summarize.summarize_by_path(data.histories))
