@@ -9,7 +9,7 @@ from urllib.parse import urlparse
 # The key is provided by the get_key_lambda argument,
 # which is then used to classify the whole history
 #
-# In order to use custom geT_key lambdas keep in mind that
+# In order to use custom get_key lambdas keep in mind that
 # they must take a single argument, which is a history entry
 # with format (datetime, url)
 
