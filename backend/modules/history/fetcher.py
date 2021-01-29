@@ -6,9 +6,8 @@ from browser_history import browsers
 
 # Gathers the histories from all available browsers
 #
-# The object returned is of type <browser_history.generic.Outputs>
-# The histories in [(datetime, url)] format can be accessed through outputs.histories
-# Some useful methods of the returned object are to_json() and to_csv(), both returning strings
+# The return object is an array with all the history entries encountered,
+# with format (datetime, url)
 #
 # One thing to note is that the data obtained from this method deosn't distinguish between
 # browsers, meaning you can't find out which entry belongs to which browser
@@ -19,7 +18,7 @@ def fetch_all():
 # Gathers information from specific browsers
 #
 # The browsers to be analyzed are specified in the first argument, which is an array of strings
-# The output format is { browser_name: <browser_history.generic.Outputs> }; you can check
+# The output format is { browser_name: [ (datetime, url) ] }; you can check
 # pesos/browser_history's documentation for details of the Outputs object
 #
 def fetch_specific(*args):
