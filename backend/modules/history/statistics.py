@@ -15,5 +15,5 @@
 #       [ (key_str, qty_of_repetitions) ]
 # , limited to a length of n, and in descending order
 #
-def top_n_repeated (summarized, n):
+def most_repeated (summarized, n):
     return sorted(summarized.items(), key=lambda entry: entry[1], reverse=True)[:n]

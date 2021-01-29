@@ -11,14 +11,15 @@
 #
 # Other files may be added as needed while the development continues
 
-from fetcher import fetch_all
-from summarize import summarize_by_domain
+from modules.history.fetcher import fetch_all
+from modules.history.summarize import summarize_by_domain
+from modules.history.statistics import most_repeated
 
 def top_domains_global(n):
     data = fetch_all()
 
     summarized = summarize_by_domain(data)
-    top_n = top_n_repeated(summarized, n)
+    top_n = most_repeated(summarized, n)
 
     return top_n
 
