@@ -11,7 +11,16 @@
 #
 # Other files may be added as needed while the development continues
 
-from fetcher import fetch_all, fetch_specific
+from fetcher import fetch_all
+from summarize import summarize_by_domain
+
+def top_domains_global(n):
+    data = fetch_all()
+
+    summarized = summarize_by_domain(data)
+    top_n = top_n_repeated(summarized, n)
+
+    return top_n
 
 if __name__ == '__main__':
     data = fetch_all()
