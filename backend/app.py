@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
-from flask import Flask, request
+from flask import Flask, request, make_response
 
 # Importacion de nuestras funciones
 from modules.cookies.cookies_analyzer import f_cookies
@@ -21,19 +21,20 @@ def top_domains():
     qty = int(request.args.get('n', default=10))
     data = []
     if browser == 'all':
-        data = top_domains_global(qty)
-
-    if len(data) == qty:
-        return {
-                'status': 'OK',
-                'command': 'top-domains',
-                'topDomains': data
-        }
-    else:
-        return {
+        try:
+            data = top_domains_global(qty)
+        except Exception as e:
+            return make_response({
                 'status': 'ERROR',
-                'commands': 'top-domains'
-        }
+                'command': 'top-domains',
+                'message': e.args[0]
+                }, 500)
+
+    return make_response({
+            'status': 'OK',
+            'command': 'top-domains',
+            'topDomains': data
+    }, 200)
 
 if __name__ == '__main__':
     app.run()

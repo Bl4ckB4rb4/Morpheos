@@ -17,6 +17,8 @@ from modules.history.statistics import most_repeated
 
 def top_domains_global(n):
     data = fetch_all()
+    if len(data) == 0:
+        raise Exception('No history entries found')
 
     summarized = summarize_by_domain(data)
     top_n = most_repeated(summarized, n)
