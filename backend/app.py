@@ -15,17 +15,17 @@ app = Flask(__name__)
 def p_cookies():
     return f_cookies()
 
-# Top domains
-#
-# For the specified browser/s, looks for the most visited domains. The number of domains
-# to look for can be specified via the query parameter 'n', and the browser can be specified
-# through the 'browser' parameter to fetch from only one history or from all of them, if 'browser'
-# is set to 'all'. If no query is given, 'n' is set to 10 and 'browser' to 'all'
-#
-# Currently, specific browser searches are not developed
-#
 @app.route('/history/top-domains')
 def top_domains():
+'''
+    Top domains
+
+    For the specified browser/s, looks for the most visited domains. The number of domains
+    to look for can be specified via the query parameter 'n', and the browser can be specified
+    through the 'browser' parameter to fetch from only one history or from all of them, if 'browser'
+    is set to 'all'. If no query is given, 'n' is set to 10 and 'browser' to 'all'
+    Currently, specific browser searches are not developed
+'''
     browser = request.args.get('browser', default='all')
     qty = int(request.args.get('n', default=10))
     data = []

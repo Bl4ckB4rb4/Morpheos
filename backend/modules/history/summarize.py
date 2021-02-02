@@ -3,18 +3,18 @@
 
 from urllib.parse import urlparse
 
-### Generic tmeplate for various possible operations with histories
-#
-# The idea is to return an output as { key: amount }
-# The key is provided by the get_key_lambda argument,
-# which is then used to classify the whole history
-#
-# In order to use custom get_key lambdas keep in mind that
-# they must take a single argument, which is a history entry
-# with format (datetime, url)
-
 def summarize_generic(histories, get_key_lambda):
+'''
+    Generic tmeplate for various possible operations with histories
 
+    The idea is to return an output as { key: amount }
+    The key is provided by the get_key_lambda argument,
+    which is then used to classify the whole history
+
+    In order to use custom get_key lambdas keep in mind that
+    they must take a single argument, which is a history entry
+    with format (datetime, url)
+'''
     summarized = {}
 
     for entry in histories:
