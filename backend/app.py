@@ -29,21 +29,23 @@ def top_domains():
     browser = request.args.get('browser', default='all')
     qty = int(request.args.get('n', default=10))
     data = []
+    response_json = { 'command': 'top-domains' }
+
     if browser == 'all':
         try:
-            data = top_domains_global(qty)
-        except Exception as e:
-            return make_response({
-                'status': 'ERROR',
-                'command': 'top-domains',
-                'message': e.args[0]
-                }, 500)
+            response_json['status'] = 'OK'
+            response_json['topDomains'] = top_domains_global(qty)
 
-    return make_response({
-            'status': 'OK',
-            'command': 'top-domains',
-            'topDomains': data
-    }, 200)
+        except Exception as e:
+            response_json['status'] = 'ERROR'
+            response_json['message'] = e.args[0]
+
+    else:
+        response_json['status'] = 'FAIL'
+        response_json['message'] = 'Function not implemented'
+
+    return response_json
+
 
 if __name__ == '__main__':
     app.run()
