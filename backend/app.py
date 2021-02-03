@@ -5,7 +5,7 @@ from flask import Flask, request, make_response
 
 # Importacion de nuestras funciones
 from modules.cookies.cookies_analyzer import f_cookies
-from modules.history.history_analyzer import top_domains_global
+from modules.history import top_domains_global
 
 app = Flask(__name__)
 

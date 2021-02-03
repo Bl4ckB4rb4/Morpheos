@@ -45,7 +45,7 @@ def summarize_by_path(histories):
         Uses the urllib library for parsing the urls
     '''
 
-        get_key = lambda entry: urlparse(entry[1]).netloc + urlparse(entry[1]).path
+    get_key = lambda entry: urlparse(entry[1]).netloc + urlparse(entry[1]).path
 
-        return summarize_generic(histories, get_key)
+    return summarize_generic(histories, get_key)
 
