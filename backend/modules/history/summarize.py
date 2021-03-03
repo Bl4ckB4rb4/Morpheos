@@ -3,6 +3,7 @@
 
 from urllib.parse import urlparse
 
+
 def summarize_generic(histories, get_key_lambda):
     '''
         Generic tmeplate for various possible operations with histories
@@ -32,20 +33,21 @@ def summarize_by_domain(histories):
 
         Uses the urllib library for parsing the urls
     '''
-
-    get_key = lambda entry: urlparse(entry[1]).netloc
+    def get_key(entry):
+        return urlparse(entry[1]).netloc
 
     return summarize_generic(histories, get_key)
 
 
 def summarize_by_path(histories):
     '''
-        Counts how many entries there are with equal paths (domain+path, without queries or fragments)
-         
+        Counts how many entries there are with equal paths
+        (domain+path, without queries or fragments)
         Uses the urllib library for parsing the urls
     '''
 
-    get_key = lambda entry: urlparse(entry[1]).netloc + urlparse(entry[1]).path
+    def get_key(entry):
+        parsed_url = urlparse(entry[1])
+        return parsed_url.netloc + parsed_url.path
 
     return summarize_generic(histories, get_key)
-

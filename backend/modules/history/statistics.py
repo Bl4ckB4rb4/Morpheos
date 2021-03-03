@@ -1,12 +1,13 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
-### Statistics
+# Statistics
 #
-# This file holds functions to be used with the results of 
+# This file holds functions to be used with the results of
 # sumarizations (see file summarize.py).
 
-def most_repeated (summarized, n):
+
+def most_repeated(summarized, n):
     '''
         Looks for most repeated items in summarization
 
@@ -17,4 +18,6 @@ def most_repeated (summarized, n):
             [ (key_str, qty_of_repetitions) ]
         , limited to a length of n, and in descending order
     '''
-    return sorted(summarized.items(), key=lambda entry: entry[1], reverse=True)[:n]
+    return sorted(summarized.items(),
+                  key=lambda entry: entry[1],
+                  reverse=True)[:n]

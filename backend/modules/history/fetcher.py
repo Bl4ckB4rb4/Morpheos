@@ -4,6 +4,7 @@
 from browser_history import get_history
 from browser_history import browsers
 
+
 def fetch_all():
     '''
         Gathers the histories from all available browsers
@@ -11,8 +12,9 @@ def fetch_all():
         The return object is an array with all the history entries encountered,
         with format (datetime, url)
 
-        One thing to note is that the data obtained from this method deosn't distinguish between
-        browsers, meaning you can't find out which entry belongs to which browser
+        One thing to note is that the data obtained from this method doesn't
+        distinguish between browsers, meaning you can't find out which entry
+        belongs to which browser
     '''
     return get_history().histories
 
@@ -21,8 +23,9 @@ def fetch_specific(*args):
     '''
         Gathers information from specific browsers
 
-        The browsers to be analyzed are specified in the first argument, which is an array of strings
-        The output format is { browser_name: [ (datetime, url) ] }; you can check
+        The browsers to be analyzed are specified in the first argument,
+        which is an array of strings. The output format is
+        { browser_name: [ (datetime, url) ] }; you can check
         pesos/browser_history's documentation for details of the Outputs object
     '''
     dict_browsers = {
@@ -42,7 +45,7 @@ def fetch_specific(*args):
         if browser_name in dict_browsers:
             try:
                 brows_init = dict_browsers[browser_name]()
-            
+
                 output[browser_name] = brows_init.fetch_history().histories
             except AssertionError as err:
                 print('INFO: browser {} not supported'.format(err))
