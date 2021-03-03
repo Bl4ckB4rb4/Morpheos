@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# JSON cache files
+backend/modules/cookies/cookies-browser.json
