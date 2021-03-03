@@ -1,19 +1,20 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 
-from flask import Flask, request
+from flask import Flask, jsonify, request
 
-# Importacion de nuestras funciones
-from modules.cookies.cookies_analyzer import f_cookies
+# Import our functions
+from modules.cookies.cookies_analyzer import t_cookies
 from modules.history import top_domains_global
 
 app = Flask(__name__)
 
 
-# Las URLs que ejecutaran nuestras funciones
+# The URLs that execute our functions
 @app.route("/cookies")
 def p_cookies():
-    return f_cookies()
+    res = t_cookies()
+    return jsonify(result=res)
 
 
 @app.route('/history/top-domains')
