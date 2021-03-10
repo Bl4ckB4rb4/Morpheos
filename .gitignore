@@ -130,3 +130,6 @@ dmypy.json
 
 # Prevent data leak
 *-cache.json
+
+#Jetbrains IDE config Files
+.idea/
