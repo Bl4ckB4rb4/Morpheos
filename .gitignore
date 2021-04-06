@@ -130,3 +130,6 @@ dmypy.json
 
 # JSON cache files
 backend/modules/cookies/cookies-browser.json
+=======
+# Prevent data leak
+*-cache.json
