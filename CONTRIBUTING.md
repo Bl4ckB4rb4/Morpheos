@@ -1,8 +1,8 @@
-##Main Branch
+## Main Branch
 
 The idea is that the main branch is main. All branches converge in main branch.
 
-##Branch names
+## Branch names
 - *WIP/featurename*   - For Work In Progress, stuff that will not end soon 
 - *FEAT/featurename*  - For feature that will be added or expanded
 - *BUG/bugname*       - For Bug 
@@ -12,7 +12,7 @@ The idea is that the main branch is main. All branches converge in main branch.
 - *IMP/improvename*   - For improvements
 - *MISC/miscname*     - For anything else (don't abuse)
 
-##Commits names
+## Commits names
 - *[ADD] message* - For add 
 - *[MOD] message* - For modify
 - *[REM] message* - For remove 
